@@ -35,11 +35,11 @@ There are two different approches to connect these files with Xcode
 
 # Success
 
-<img src="/images/Start.png" />
+<img src="/images/Success.png" />
 
 # Fails
 
-<img src="/images/Start.png" />
+<img src="/images/Fails.png" />
 
 - Now the only thing you need to do is to check `Run` in all of the configurations and select correct scripts for all of them
 - `before` for start and `after` for Fails and Success
