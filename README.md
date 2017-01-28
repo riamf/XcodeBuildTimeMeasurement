@@ -63,12 +63,16 @@ This configuration will use posibility to add `Run Script` to `Build Phases` in 
 
 `./before.sh`
 
-5. Remember about the path, it will change accordingly to where are the scripts.
-6. The same thing for the bottom run script:
+- Remember about the path, it will change accordingly to where are the scripts.
+- The same thing for the bottom run script:
 
 `./after.sh`
 
-7. Done, Now scripts will generate time measurement file.
+It all yout look something like this:
+
+<img src="images/RunScripts.png"\>
+
+- Done, Now scripts will generate time measurement file.
 
 Disadvantage for this approach is that it will not measure time when build will fail (unless you will set flag PBXBuildsContinueAfterErrors to YES). 
 
