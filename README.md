@@ -74,7 +74,7 @@ Disadvantage for this approach is that it will not measure time when build will 
 
 ## Created by
 Paweł Kowalczuk,
-[@riamf1][https://twitter.com/riamf1]
+[@riamf1](https://twitter.com/riamf1)
 
 
 
