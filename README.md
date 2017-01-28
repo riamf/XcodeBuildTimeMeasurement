@@ -73,8 +73,8 @@ This configuration will use posibility to add `Run Script` to `Build Phases` in 
 Disadvantage for this approach is that it will not measure time when build will fail (unless you will set flag PBXBuildsContinueAfterErrors to YES). 
 
 ## Created by
-Paweł Kowalczuk
-@riamf1
+Paweł Kowalczuk,
+[@riamf1][https://twitter.com/riamf1]
 
 
 
