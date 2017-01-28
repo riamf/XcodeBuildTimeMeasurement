@@ -26,13 +26,14 @@ echo "creating file"
         echo "Day:,time(s):,formatted time:, number of builds:" >> $FILENAME;
     fi
 }
-
+#Calculate build time
 function CALCULATE_TIME() {
     START_TIMESTAMP=`cat $TMP_FILE`
     END_TIMESTAMP=`date +%s`
     RESULT_TIMESTAMP="$((END_TIMESTAMP-START_TIMESTAMP))"
 }
 
+#Save info to file
 function SAVE_INFO() {
 
     declare -i NUMBER_OF_LINES=`cat $FILENAME | wc -l`
@@ -69,6 +70,7 @@ function SAVE_INFO() {
     fi
 }
 
+#remove tmp file
 function REMOVE_TMP_FILE() {
     rm -rf $TMP_FILE
 }
