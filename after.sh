@@ -22,7 +22,7 @@ function CREATE_TIME_CSV_FILE_IF_NEEDED() {
     FILENAME="${PROJECT_NAME}_buildTime.csv"
     if [ ! -f $FILENAME ]; then
         touch $FILENAME;
-echo "creating file"
+
         echo "Day:,time(s):,formatted time:, number of builds:" >> $FILENAME;
     fi
 }
@@ -36,7 +36,6 @@ function CALCULATE_TIME() {
 #Save info to file
 function SAVE_INFO() {
 
-    declare -i NUMBER_OF_LINES=`cat $FILENAME | wc -l`
     declare -i NUMBER_OF_BUILDS=1
 
     DATE=`date +%d-%m-%y`
@@ -45,13 +44,15 @@ function SAVE_INFO() {
     MINUTES=$((RESULT_TIMESTAMP / 60))
     HOURS=$((RESULT_TIMESTAMP / 3600))
 
+    LINE=`tail -1 $FILENAME`;
+    IFS=',' read -ra ARRAY <<< "$LINE";
+
     FORMATTED="${HOURS}h ${MINUTES}m ${SECONDS}s"
 
-    if [ "$NUMBER_OF_LINES" -eq "1" ]; then
+    if [ ! "${ARRAY[0]}" == "$DATE" ]; then
         echo "${DATE},${RESULT_TIMESTAMP},${FORMATTED},${NUMBER_OF_BUILDS}" >> $FILENAME;
     else
-        LINE=`tail -1 $FILENAME`;
-        IFS=',' read -ra ARRAY <<< "$LINE";
+
         NUMBER_OF_BUILDS="$((ARRAY[3] + 1))";
         RESULT_TIMESTAMP="$((RESULT_TIMESTAMP + ARRAY[1]))";
 
